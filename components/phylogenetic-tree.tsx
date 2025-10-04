@@ -370,7 +370,7 @@ export function PhylogeneticTree() {
           y={node.y * zoom + 4 * zoom}
           fontSize={16 * zoom}
           textAnchor="middle"
-          fill="hsl(142, 71%, 45%)"
+          fill="white"
           className="pointer-events-none select-none font-bold"
         >
           {node.collapsed ? "+" : "+"}
@@ -386,7 +386,7 @@ export function PhylogeneticTree() {
           x={node.x * zoom + 35 * zoom}
           y={node.y * zoom + 5 * zoom}
           fontSize={14 * zoom}
-          fill="hsl(var(--foreground))"
+          fill="white"
           className="pointer-events-none select-none font-medium"
         >
           {node.name}
@@ -464,11 +464,11 @@ export function PhylogeneticTree() {
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1">
                 <div className="w-3 h-3 rounded-full bg-links"></div>
-                <span className="text-xs text-muted-foreground">Your sequence</span>
+                <span className="text-xs text-white">Your sequence</span>
               </div>
               <div className="flex items-center gap-1">
                 <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "hsl(142, 71%, 45%)" }}></div>
-                <span className="text-xs text-muted-foreground">Related sequences</span>
+                <span className="text-xs text-white">Related sequences</span>
               </div>
             </div>
           </div>
@@ -518,7 +518,7 @@ export function PhylogeneticTree() {
           </div>
 
           {/* Instructions */}
-          <div className="text-xs text-muted-foreground space-y-1">
+          <div className="text-xs text-white space-y-1">
             <p>• Click + symbols to expand or collapse branches</p>
             <p>• Hover over nodes to see detailed taxonomic information</p>
             <p>• Use zoom controls to explore different taxonomic levels</p>

@@ -98,7 +98,7 @@ export default function TroutDemoPage() {
               <Download className="h-4 w-4 mr-2" />
               CSV
             </Button>
-            <Button onClick={() => handleDownload("pdf")} className="glass-card">
+            <Button onClick={() => handleDownload("pdf")} className="bg-card/50 backdrop-blur-sm">
               <Download className="h-4 w-4 mr-2" />
               PDF Report
             </Button>
@@ -109,7 +109,7 @@ export default function TroutDemoPage() {
           {/* Main Results */}
           <div className="lg:col-span-2 space-y-6">
             {/* Taxonomy Card */}
-            <Card className="glass-card border-border/50">
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Dna className="h-5 w-5 text-primary" />
@@ -122,7 +122,7 @@ export default function TroutDemoPage() {
               <CardContent className="space-y-4">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <h3 className="text-2xl font-bold text-primary">{troutResults.taxonomy.scientificName}</h3>
+                    <h3 className="text-2xl font-bold" style={{background: 'linear-gradient(90deg, #2962FF 0%, #2684FF 50%, #B620E0 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>{troutResults.taxonomy.scientificName}</h3>
                     <p className="text-lg text-muted-foreground">{troutResults.taxonomy.commonName}</p>
                   </div>
                   <div className="space-y-2">
@@ -152,7 +152,7 @@ export default function TroutDemoPage() {
             </Card>
 
             {/* Sequence Information */}
-            <Card className="glass-card border-border/50">
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle>Sequence Analysis</CardTitle>
               </CardHeader>
@@ -191,7 +191,7 @@ export default function TroutDemoPage() {
             </Card>
 
             {/* Phylogenetic Relationships */}
-            <Card className="glass-card border-border/50">
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <TreePine className="h-5 w-5 text-primary" />
@@ -207,7 +207,7 @@ export default function TroutDemoPage() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Biological Images */}
-            <Card className="glass-card border-border/50">
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <ImageIcon className="h-5 w-5 text-primary" />
@@ -231,8 +231,28 @@ export default function TroutDemoPage() {
                     onClick={() => setSelectedImage("trout-2")}
                   >
                     <img
-                      src="/placeholder.jpg"
+                      src="/brook-trout.jpg"
+                      alt="Rainbow trout in stream"
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  </div>
+                  <div
+                    className="aspect-square bg-muted/30 rounded-lg cursor-pointer hover:bg-muted/50 transition-colors flex items-center justify-center"
+                    onClick={() => setSelectedImage("trout-3")}
+                  >
+                    <img
+                      src="/brown-trout-fish-swimming.jpg"
                       alt="Rainbow trout habitat"
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  </div>
+                  <div
+                    className="aspect-square bg-muted/30 rounded-lg cursor-pointer hover:bg-muted/50 transition-colors flex items-center justify-center"
+                    onClick={() => setSelectedImage("trout-4")}
+                  >
+                    <img
+                      src="/brown-trout-habitat-stream.jpg"
+                      alt="Rainbow trout spawning"
                       className="w-full h-full object-cover rounded-lg"
                     />
                   </div>
@@ -245,7 +265,7 @@ export default function TroutDemoPage() {
             </Card>
 
             {/* Ecological Information */}
-            <Card className="glass-card border-border/50">
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <MapPin className="h-5 w-5 text-primary" />

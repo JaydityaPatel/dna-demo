@@ -90,28 +90,26 @@ export default function UploadPage() {
             </Link>
           </Button>
           <div>
-            <h1 className="text-4xl font-bold">
-              <span className="gradient-text-large">Heart of the</span> DNA Analysis
-            </h1>
-            <p className="text-muted-foreground text-lg">Your smart companion for discovering marine species, one sequence at a time</p>
+            <h1 className="text-3xl font-bold">Upload DNA Sequence</h1>
+            <p className="text-muted-foreground">Upload a file or paste your sequence to begin analysis</p>
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto space-y-6">
-          {/* Main Upload Section - Side by Side */}
-          <div className="grid lg:grid-cols-2 gap-6">
+        <div className="max-w-7xl mx-auto">
+          {/* Three Column Layout */}
+          <div className="grid lg:grid-cols-3 gap-6">
             {/* File Upload Card */}
-            <Card className="glass-card border-border/50">
+            <Card className="bg-gray-800/50 border-gray-600/50 h-96 flex flex-col">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Waves className="h-5 w-5 text-primary" />
                   File Upload
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-1 flex flex-col">
                 <div
-                  className={`border-2 border-dashed rounded-lg p-6 text-center transition-colors ${
-                    dragActive ? "border-primary bg-primary/5" : "border-border hover:border-primary/50"
+                  className={`border-2 border-dashed rounded-lg p-6 text-center transition-colors flex-1 flex flex-col justify-center ${
+                    dragActive ? "border-primary bg-primary/5" : "border-gray-500 hover:border-primary/50"
                   }`}
                   onDragEnter={handleDrag}
                   onDragLeave={handleDrag}
@@ -121,9 +119,9 @@ export default function UploadPage() {
                   {file ? (
                     <div className="space-y-2">
                       <FileText className="h-10 w-10 text-primary mx-auto" />
-                      <p className="font-medium">{file.name}</p>
-                      <p className="text-sm text-muted-foreground">{(file.size / 1024).toFixed(1)} KB</p>
-                      <Button variant="outline" size="sm" onClick={() => setFile(null)} className="neon-glow">
+                      <p className="font-medium text-sm">{file.name}</p>
+                      <p className="text-xs text-muted-foreground">{(file.size / 1024).toFixed(1)} KB</p>
+                      <Button variant="outline" size="sm" onClick={() => setFile(null)}>
                         Remove File
                       </Button>
                     </div>
@@ -131,8 +129,8 @@ export default function UploadPage() {
                     <div className="space-y-3">
                       <Upload className="h-10 w-10 text-muted-foreground mx-auto" />
                       <div>
-                        <p className="font-medium">Drop your FASTA or CSV file here</p>
-                        <p className="text-sm text-muted-foreground">or click to browse files</p>
+                        <p className="font-medium text-sm">Drop your FASTA or CSV file here</p>
+                        <p className="text-xs text-muted-foreground">or click to browse files</p>
                       </div>
                       <input
                         type="file"
@@ -141,7 +139,7 @@ export default function UploadPage() {
                         className="hidden"
                         id="file-upload"
                       />
-                      <Button variant="outline" asChild className="neon-glow">
+                      <Button variant="outline" size="sm" asChild>
                         <label htmlFor="file-upload" className="cursor-pointer">
                           Browse Files
                         </label>
@@ -153,14 +151,14 @@ export default function UploadPage() {
             </Card>
 
             {/* Text Input Card */}
-            <Card className="glass-card border-border/50">
+            <Card className="bg-gray-800/50 border-gray-600/50 h-96 flex flex-col">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Droplets className="h-5 w-5 text-primary" />
-                  Or Paste Sequence Directly
+                  Paste Sequence
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-1 flex flex-col">
                 <Textarea
                   placeholder="Paste your DNA sequence here (FASTA format supported)&#10;Example:&#10;>Sample_Sequence&#10;ATCGATCGATCGATCG..."
                   value={sequence}
@@ -171,97 +169,104 @@ export default function UploadPage() {
                     }
                     setError("")
                   }}
-                  className="min-h-32 font-mono text-sm search-bar"
+                  className="flex-1 font-mono text-sm resize-none"
                 />
+              </CardContent>
+            </Card>
+
+            {/* Demo Dashboards Card */}
+            <Card className="bg-gray-800/50 border-gray-600/50 h-96 flex flex-col">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Fish className="h-5 w-5 text-primary" />
+                  Demo Dashboards
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="flex-1 flex flex-col">
+                <p className="text-sm text-muted-foreground mb-4">
+                  Explore sample analysis results for different marine species.
+                </p>
+                <div className="space-y-4 flex-1">
+                  {/* Top Row - Two buttons side by side */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <Button 
+                      variant="outline" 
+                      className="h-20 p-3 flex flex-col items-center justify-center gap-2 bg-transparent species-button neon-glow transition-all duration-300 hover:scale-105"
+                      asChild
+                    >
+                      <Link href="/demo/salmon">
+                        <div className="w-10 h-10 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg flex items-center justify-center font-mono text-sm text-primary border border-primary/30">
+                          <div className="text-center leading-tight">
+                            <div>ATCG</div>
+                            <div>GCTA</div>
+                          </div>
+                        </div>
+                        <div className="text-center">
+                          <div className="font-semibold text-sm">Salmon</div>
+                          <div className="text-xs text-muted-foreground">Salmo salar</div>
+                        </div>
+                      </Link>
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      className="h-20 p-3 flex flex-col items-center justify-center gap-2 bg-transparent species-button neon-glow transition-all duration-300 hover:scale-105"
+                      asChild
+                    >
+                      <Link href="/demo/trout">
+                        <div className="w-10 h-10 bg-gradient-to-br from-green-500/20 to-blue-500/20 rounded-lg flex items-center justify-center font-mono text-sm text-primary border border-primary/30">
+                          <div className="text-center leading-tight">
+                            <div>GCTA</div>
+                            <div>ATCG</div>
+                          </div>
+                        </div>
+                        <div className="text-center">
+                          <div className="font-semibold text-sm">Trout</div>
+                          <div className="text-xs text-muted-foreground">Oncorhynchus</div>
+                        </div>
+                      </Link>
+                    </Button>
+                  </div>
+                  
+                  {/* Bottom Row - One centered button */}
+                  <div className="flex justify-center">
+                    <Button 
+                      variant="outline" 
+                      className="h-20 px-6 py-3 flex flex-col items-center justify-center gap-2 bg-transparent species-button neon-glow transition-all duration-300 hover:scale-105"
+                      asChild
+                    >
+                      <Link href="/demo/whitefish">
+                        <div className="w-10 h-10 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg flex items-center justify-center font-mono text-sm text-primary border border-primary/30">
+                          <div className="text-center leading-tight">
+                            <div>CGAT</div>
+                            <div>TAGC</div>
+                          </div>
+                        </div>
+                        <div className="text-center">
+                          <div className="font-semibold text-sm">Whitefish</div>
+                          <div className="text-xs text-muted-foreground">Coregonus</div>
+                        </div>
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>
 
           {/* Error Message */}
           {error && (
-            <div className="flex items-center gap-2 p-4 bg-destructive/10 border border-destructive/20 rounded-lg">
+            <div className="flex items-center gap-2 p-4 bg-destructive/10 border border-destructive/20 rounded-lg mt-6">
               <AlertCircle className="h-5 w-5 text-destructive" />
               <p className="text-destructive">{error}</p>
             </div>
           )}
 
           {/* Next Button */}
-          <div className="flex justify-end">
+          <div className="flex justify-end mt-6">
             <Button size="lg" onClick={handleNext} disabled={!canProceed} className="modern-button">
               Next: Process Data
             </Button>
           </div>
-
-          {/* Existing FASTA Files Section */}
-          <Card className="glass-card border-border/50">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Fish className="h-5 w-5 text-primary neon-text" />
-                <span className="neon-text">Existing FASTA Files</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground mb-4">
-                Explore sample analysis results for different marine species to see what the tool can do.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <Button 
-                  variant="outline" 
-                  className="h-auto p-4 flex flex-col items-center gap-3 bg-transparent species-button neon-glow transition-all duration-300"
-                  asChild
-                >
-                  <Link href="/demo/salmon">
-                    <div className="w-16 h-16 bg-muted/30 rounded-lg flex items-center justify-center font-mono text-xs text-primary">
-                      <div className="text-center">
-                        <div>ATCGATCG</div>
-                        <div>GCTAGCTA</div>
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <div className="font-medium">Atlantic Salmon</div>
-                      <div className="text-xs text-muted-foreground">Salmo salar</div>
-                    </div>
-                  </Link>
-                </Button>
-                <Button 
-                  variant="outline" 
-                  className="h-auto p-4 flex flex-col items-center gap-3 bg-transparent species-button neon-glow transition-all duration-300"
-                  asChild
-                >
-                  <Link href="/demo/trout">
-                    <div className="w-16 h-16 bg-muted/30 rounded-lg flex items-center justify-center font-mono text-xs text-primary">
-                      <div className="text-center">
-                        <div>GCTAGCTA</div>
-                        <div>ATCGATCG</div>
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <div className="font-medium">Rainbow Trout</div>
-                      <div className="text-xs text-muted-foreground">Oncorhynchus mykiss</div>
-                    </div>
-                  </Link>
-                </Button>
-                <Button 
-                  variant="outline" 
-                  className="h-auto p-4 flex flex-col items-center gap-3 bg-transparent species-button neon-glow transition-all duration-300"
-                  asChild
-                >
-                  <Link href="/demo/whitefish">
-                    <div className="w-16 h-16 bg-muted/30 rounded-lg flex items-center justify-center font-mono text-xs text-primary">
-                      <div className="text-center">
-                        <div>CGATCGAT</div>
-                        <div>TAGCTAGC</div>
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <div className="font-medium">European Whitefish</div>
-                      <div className="text-xs text-muted-foreground">Coregonus lavaretus</div>
-                    </div>
-                  </Link>
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </div>

@@ -98,7 +98,7 @@ export default function WhitefishDemoPage() {
               <Download className="h-4 w-4 mr-2" />
               CSV
             </Button>
-            <Button onClick={() => handleDownload("pdf")} className="glass-card">
+            <Button onClick={() => handleDownload("pdf")} className="bg-card/50 backdrop-blur-sm">
               <Download className="h-4 w-4 mr-2" />
               PDF Report
             </Button>
@@ -109,7 +109,7 @@ export default function WhitefishDemoPage() {
           {/* Main Results */}
           <div className="lg:col-span-2 space-y-6">
             {/* Taxonomy Card */}
-            <Card className="glass-card border-border/50">
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Dna className="h-5 w-5 text-primary" />
@@ -122,7 +122,7 @@ export default function WhitefishDemoPage() {
               <CardContent className="space-y-4">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <h3 className="text-2xl font-bold text-primary">{whitefishResults.taxonomy.scientificName}</h3>
+                    <h3 className="text-2xl font-bold" style={{background: 'linear-gradient(90deg, #2962FF 0%, #2684FF 50%, #B620E0 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>{whitefishResults.taxonomy.scientificName}</h3>
                     <p className="text-lg text-muted-foreground">{whitefishResults.taxonomy.commonName}</p>
                   </div>
                   <div className="space-y-2">
@@ -152,7 +152,7 @@ export default function WhitefishDemoPage() {
             </Card>
 
             {/* Sequence Information */}
-            <Card className="glass-card border-border/50">
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle>Sequence Analysis</CardTitle>
               </CardHeader>
@@ -191,7 +191,7 @@ export default function WhitefishDemoPage() {
             </Card>
 
             {/* Phylogenetic Relationships */}
-            <Card className="glass-card border-border/50">
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <TreePine className="h-5 w-5 text-primary" />
@@ -207,7 +207,7 @@ export default function WhitefishDemoPage() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Biological Images */}
-            <Card className="glass-card border-border/50">
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <ImageIcon className="h-5 w-5 text-primary" />
@@ -231,8 +231,28 @@ export default function WhitefishDemoPage() {
                     onClick={() => setSelectedImage("whitefish-2")}
                   >
                     <img
-                      src="/placeholder.jpg"
+                      src="/european-grayling.jpg"
+                      alt="European whitefish in lake"
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  </div>
+                  <div
+                    className="aspect-square bg-muted/30 rounded-lg cursor-pointer hover:bg-muted/50 transition-colors flex items-center justify-center"
+                    onClick={() => setSelectedImage("whitefish-3")}
+                  >
+                    <img
+                      src="/huchen-salmon.jpg"
                       alt="European whitefish habitat"
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  </div>
+                  <div
+                    className="aspect-square bg-muted/30 rounded-lg cursor-pointer hover:bg-muted/50 transition-colors flex items-center justify-center"
+                    onClick={() => setSelectedImage("whitefish-4")}
+                  >
+                    <img
+                      src="/atlantic-salmon.jpg"
+                      alt="European whitefish spawning"
                       className="w-full h-full object-cover rounded-lg"
                     />
                   </div>
@@ -245,7 +265,7 @@ export default function WhitefishDemoPage() {
             </Card>
 
             {/* Ecological Information */}
-            <Card className="glass-card border-border/50">
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <MapPin className="h-5 w-5 text-primary" />

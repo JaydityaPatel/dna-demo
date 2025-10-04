@@ -109,7 +109,7 @@ export default function SalmonDemoPage() {
           {/* Main Results */}
           <div className="lg:col-span-2 space-y-6">
             {/* Taxonomy Card */}
-            <Card className="glass-card border-border/50 wave-animation">
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Dna className="h-5 w-5 text-primary" />
@@ -122,7 +122,7 @@ export default function SalmonDemoPage() {
               <CardContent className="space-y-4">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <h3 className="text-2xl font-bold text-primary">{salmonResults.taxonomy.scientificName}</h3>
+                    <h3 className="text-2xl font-bold" style={{background: 'linear-gradient(90deg, #2962FF 0%, #2684FF 50%, #B620E0 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>{salmonResults.taxonomy.scientificName}</h3>
                     <p className="text-lg text-muted-foreground">{salmonResults.taxonomy.commonName}</p>
                   </div>
                   <div className="space-y-2">
@@ -152,7 +152,7 @@ export default function SalmonDemoPage() {
             </Card>
 
             {/* Sequence Information */}
-            <Card className="glass-card border-border/50 ocean-ripple">
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle>Sequence Analysis</CardTitle>
               </CardHeader>
@@ -191,7 +191,7 @@ export default function SalmonDemoPage() {
             </Card>
 
             {/* Phylogenetic Relationships */}
-            <Card className="glass-card border-border/50 bubble-float">
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <TreePine className="h-5 w-5 text-primary" />
@@ -207,7 +207,7 @@ export default function SalmonDemoPage() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Biological Images */}
-            <Card className="glass-card border-border/50 wave-animation">
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <ImageIcon className="h-5 w-5 text-primary" />
@@ -231,8 +231,28 @@ export default function SalmonDemoPage() {
                     onClick={() => setSelectedImage("salmon-2")}
                   >
                     <img
-                      src="/placeholder.jpg"
+                      src="/brown-trout-fish-swimming.jpg"
+                      alt="Atlantic salmon swimming"
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  </div>
+                  <div
+                    className="aspect-square bg-muted/30 rounded-lg cursor-pointer hover:bg-muted/50 transition-colors flex items-center justify-center"
+                    onClick={() => setSelectedImage("salmon-3")}
+                  >
+                    <img
+                      src="/brown-trout-habitat-stream.jpg"
                       alt="Atlantic salmon habitat"
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  </div>
+                  <div
+                    className="aspect-square bg-muted/30 rounded-lg cursor-pointer hover:bg-muted/50 transition-colors flex items-center justify-center"
+                    onClick={() => setSelectedImage("salmon-4")}
+                  >
+                    <img
+                      src="/rainbow-trout.jpg"
+                      alt="Atlantic salmon juvenile"
                       className="w-full h-full object-cover rounded-lg"
                     />
                   </div>
@@ -245,7 +265,7 @@ export default function SalmonDemoPage() {
             </Card>
 
             {/* Ecological Information */}
-            <Card className="glass-card border-border/50 ocean-ripple">
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <MapPin className="h-5 w-5 text-primary" />
